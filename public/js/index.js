@@ -12,3 +12,14 @@ socket.on('disconnect', function () {
 socket.on('newMessage', function(message) {
   console.log('new message', message);
 });
+
+socket.emit('createMessage', {
+  from:'frank',
+  text:'hi'
+}, function (data) {
+  console.log('got it',data);
+});
+
+jQuery('#message-form').on('submit', function (e) {
+  e.preventDefault();
+});
